@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <title>Dynamic Color Scheme Generator</title>
+        <meta charset="UTF-8">
+        <meta ="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <!-- Font-Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body class="light">
+        <header>
+            <label for="color-picker"></label>
+            <input type="color" id="color-picker" class="light">
+            <select id="color-scheme-mode" class="light"></select>
+            <button onclick="" id="color-scheme-btn" class="light">Get color scheme</button>
+            <div id="toggle-container">
+                <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="checkbox" />
+                <label
+                    for="checkbox"
+                    class="label">
+                    <i class="fa-solid fa-moon"></i>
+                    <i class="fa-solid fa-sun"></i>
+                    <div class="ball"></div>
+                </label>
+            </div>
+        </header>
+        <main class="light"></main>
+        <div id="snackbar" class="light">Color successfully copied to clipboard.</div>
+        <script src="index.js" module="type"></script>
+    </body>
+</html>

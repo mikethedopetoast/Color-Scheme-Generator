@@ -1,0 +1,273 @@
+/* page layout */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 40em;
+    min-width: 20em;
+    width: 90%;
+    height: 90vh;
+}
+
+/* font sizes */
+
+#color-scheme-mode,
+#color-scheme-btn,
+#color-name,
+#color-hex,
+#snackbar {
+    font-size: 0.75rem;
+}
+
+/* text alignment */
+
+#color-name,
+#color-hex,
+#snackbar {
+    text-align: center;
+}
+
+
+/* header layout */
+
+header {
+    display: flex;
+    align-items: center;
+    margin: 1em 0 0.75em;
+}
+
+#color-picker,
+#color-scheme-mode,
+#color-scheme-btn {
+    font-family: "Montserrat", sans-serif;
+    background-color: #ffffff;
+    margin: 0.375em;
+    height: 2em;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25em;
+}
+
+/* Color and scheme mode selector design */
+
+#color-picker {
+    flex: 1;
+    border: none;
+}
+
+#color-scheme-mode {
+    flex: 4;     
+}
+
+/* Get color scheme button design */
+
+#color-scheme-btn {
+    flex: 2;
+    cursor: pointer;
+}
+
+#color-scheme-btn:hover {
+    background-color: #008000;
+    color: #ffffff;
+}
+
+/* Light-dark theme toggle checkbox design */
+
+#toggle-container,
+.label {
+    display: flex;
+    align-items: center;
+}
+
+#toggle-container {
+    justify-content: center;
+    margin: 0 0.6em;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(1.5em);
+}
+
+.label {
+    background-color: #111111;
+    justify-content: space-between;
+    padding: 0.313em;
+    position: relative;
+    border-radius: 50px;
+    height: 26px;
+    width: 50px;
+}
+
+.ball {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #ffffff;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transition: transform 0.2s linear;
+}
+
+.fa-moon {
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+
+/* Colors area */
+
+main {
+    display: flex;
+    min-height: 80vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Rendered colors based on selection */
+
+.color-column {
+    display: flex;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Generated colors with name and hex value */
+
+#color-name {
+    position: absolute;
+    transform: rotate(-15deg);
+    left: -2em;
+    right: -2em;
+    top: 2.5em;
+    padding: 0.5em 2.5em;
+    background-color: #3d4b60;
+    color: #ffffff;
+    border-radius: 2em;
+}
+
+#color-hex {
+    flex: 1;
+    margin-top: auto;
+    margin-bottom: 0;
+    padding: 1em;
+    background-color: #3d4b60;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#color-name:hover,
+#color-hex:hover {
+    background-color: #008000;
+}
+
+/* Copy to clipboard triggers snackbar */
+
+#snackbar {
+    visibility: hidden;
+    position: fixed;
+    font-weight: bold;
+    background-color: #cccccc;
+    padding: 1em;
+    border-radius: 0.75em;
+    color: #070707;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 1em;
+}
+
+#snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s ease-out, fadeout 0.5s ease-out 2s;
+}
+
+@keyframes fadein {
+    0% {bottom: 0; opacity: 0;}
+    100% {bottom: 10em; opacity: 1;}
+}
+
+@keyframes fadeout {
+    0% {bottom: 10em; opacity: 1;}
+    100% {bottom: 0; opacity: 0;}
+}
+
+
+/* Dark theme design */
+
+body.dark {
+    background-color: #111827;
+}
+
+#color-picker.dark,
+#color-scheme-mode.dark,
+#color-scheme-btn.dark {
+    background-color: #1F2937;
+    color: #ffffff;
+    border-color: #3d4b60;
+}
+
+#color-scheme-btn:hover.dark {
+    background-color: #008000;
+    outline: none;
+}
+
+#snackbar.show.dark {
+    background-color: #3d4b60;
+    color: #ffffff;
+}
+
+
+/* Media queries */
+
+@media (max-width: 40rem) {
+    body {
+        height: 80vh;
+    }
+    
+    header {
+        display: grid;
+        grid-template-areas:
+            "scheme picker"
+            "button toggle";
+        margin-bottom: 0.625em;
+    }
+    
+    #color-picker {
+        grid-area: picker;
+        justify-self: center;
+    }
+    
+    #color-scheme-mode {
+        grid-area: scheme;
+        text-align: center; 
+    }
+    
+    #color-scheme-btn {
+        grid-area: button;
+    }
+    
+    #toggle-container {
+        grid-area: toggle;
+    }
+    
+    #color-name,
+    #color-hex {
+       font-size: 0.6rem; 
+    }
+}
