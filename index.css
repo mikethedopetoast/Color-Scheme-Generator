@@ -12,8 +12,6 @@ body {
     margin: 0 auto;
     max-width: 40em;
     min-width: 20em;
-    width: 90%;
-    height: 90vh;
 }
 
 /* font sizes */
@@ -133,8 +131,7 @@ header {
 
 main {
     display: flex;
-    min-height: 80vh;
-    height: 100vh;
+    height: 80vh;
     overflow: hidden;
 }
 
